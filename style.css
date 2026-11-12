@@ -1,0 +1,498 @@
+/* ==========================================================
+   FONTES (hospedadas no próprio site, pasta fonts/)
+   Inter (textos) e Playfair Display (títulos). Arquivos oficiais
+   do Google Fonts, só com os alfabetos latinos (português incluso).
+   ========================================================== */
+@font-face {
+  font-family: "Inter"; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url("fonts/inter-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Inter"; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url("fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Playfair Display"; font-style: normal; font-weight: 400 500; font-display: swap;
+  src: url("fonts/playfair-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Playfair Display"; font-style: normal; font-weight: 400 500; font-display: swap;
+  src: url("fonts/playfair-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Playfair Display"; font-style: italic; font-weight: 400; font-display: swap;
+  src: url("fonts/playfair-italic-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Playfair Display"; font-style: italic; font-weight: 400; font-display: swap;
+  src: url("fonts/playfair-italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ==========================================================
+   VARIÁVEIS DE DESIGN
+   Paleta: preto quente, dourado, champagne e marfim.
+   Para mudar as cores do site inteiro, altere apenas aqui.
+   ========================================================== */
+:root {
+  --bg: #fbf6ee;
+  --bg-alt: #f1e6d4;
+  --nude: #e3d3c4;
+  --gold: #c9a24d;
+  --gold-dark: #8a6a24;
+  --champ: #ecd49a;
+  --brown: #4a3a2e;
+  --ink: #1a1613;
+  --header-h: 72px;
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "Inter", system-ui, sans-serif;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+/* Rolagem suave nativa; o scroll-padding compensa a altura do header fixo. */
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+html, body { max-width: 100%; overflow-x: hidden; }
+body { margin: 0; font: 400 1.08rem/1.7 var(--sans); color: var(--ink); background: var(--bg); -webkit-text-size-adjust: 100%; }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.2; margin: 0 0 1rem; }
+h1 { font-size: clamp(2.2rem, 6vw, 4.2rem); }
+h2 { font-size: clamp(1.7rem, 4vw, 2.6rem); font-weight: 500; color: #14100d; }
+p { margin: 0 0 1rem; }
+address { font-style: normal; margin-bottom: 1rem; }
+a { color: inherit; }
+[hidden] { display: none !important; }
+
+/* Foco visível para navegação por teclado (acessibilidade). */
+:focus-visible { outline: 2px solid var(--gold-dark); outline-offset: 3px; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: #fff; padding: .5rem 1rem; z-index: 200; }
+.skip:focus { left: 0; }
+
+/* O container limita a largura do conteúdo para evitar linhas longas em monitores grandes. */
+.container { width: min(1180px, 100% - 2.5rem); margin-inline: auto; }
+.center { text-align: center; }
+.lead { color: var(--brown); font-size: 1.2rem; font-weight: 500; }
+.section { padding: clamp(4rem, 9vw, 7rem) 0; }
+.section--alt { background: var(--bg-alt); }
+
+/* Traço dourado sob os títulos centralizados (cresce quando o título aparece). */
+h2.center::after { content: ""; display: block; width: 64px; height: 2px; background: var(--gold); margin: 1rem auto 0;
+  transform: scaleX(0); transition: transform 1s .35s cubic-bezier(.2,.7,.2,1); }
+h2.center.in::after { transform: scaleX(1); }
+
+/* Palavra em destaque nos títulos. */
+h1 em, h2 em { font-style: italic; font-weight: 400; }
+.hero h1 em { color: var(--champ); }
+h2 em { color: var(--gold-dark); }
+#servicos h2 em, .cta h2 em { color: #fff; }
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-block; padding: .85rem 1.7rem; border-radius: 2px; cursor: pointer;
+  font: 600 .8rem var(--sans); letter-spacing: .14em; text-transform: uppercase; text-decoration: none;
+  transition: background .25s, color .25s, transform .25s; margin: .25rem;
+}
+.btn--gold { background: var(--gold); color: #120e0a; }
+.btn--gold:hover { background: var(--champ); transform: translateY(-2px); }
+.btn--line { border: 1px solid #14100d; color: #14100d; }
+.btn--line:hover { background: #14100d; color: var(--champ); }
+.btn--dark { background: #14100d; color: var(--champ); border: 1px solid #14100d; }
+.btn--dark:hover { background: var(--gold); color: #120e0a; border-color: var(--gold); }
+/* Links sem URL configurada ficam ocultos até o dono preencher o CONFIG. */
+a[data-pending] { display: none; }
+
+/* ---------- Header: transparente no topo, escuro ao rolar ---------- */
+.header {
+  position: fixed; inset: 0 0 auto; height: var(--header-h); z-index: 100;
+  background: transparent; border-bottom: 1px solid transparent;
+  transition: box-shadow .35s, border-color .35s;
+}
+/* Camada escura sólida: aparece ao rolar (classe .scrolled vem do script.js) ou com o menu aberto. */
+.header::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: rgba(10,8,7,.96); opacity: 0; transition: opacity .35s;
+}
+/* Véu em degradê no topo: mantém logo e menu legíveis sobre fotos. */
+.header::after {
+  content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,.55), transparent); transition: opacity .35s;
+}
+.header.scrolled { box-shadow: 0 10px 28px rgba(0,0,0,.4); border-bottom-color: var(--gold); }
+.header.scrolled::before, .header:has(.nav.open)::before { opacity: 1; }
+.header.scrolled::after, .header:has(.nav.open)::after { opacity: 0; }
+.header__in { display: flex; align-items: center; justify-content: space-between; height: 100%; gap: 1rem; }
+
+/* Logo à esquerda do nome da marca, com brilho dourado sutil. */
+.logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; color: var(--champ); }
+.logo img { height: 64px; width: 64px; border-radius: 50%; filter: drop-shadow(0 0 6px rgba(201,162,77,.35)); }
+.logo-name { font: 500 1.2rem/1.1 var(--serif); letter-spacing: .05em; }
+.logo-name small { display: block; font: 500 .68rem var(--sans); letter-spacing: .18em; text-transform: uppercase; color: #fff; margin-top: .2rem; }
+
+.nav { display: flex; gap: 1.6rem; }
+.nav a { text-decoration: none; font-size: .9rem; position: relative; padding: .3rem 0; color: #f6eddc; font-weight: 500; }
+/* Sublinhado discreto no hover e na seção ativa (classe aplicada por initNavigation). */
+.nav a::after { content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 0; background: var(--gold); transition: width .3s; }
+.nav a:hover::after, .nav a.active::after { width: 100%; }
+.burger { display: none; background: none; border: 0; font-size: 1.7rem; cursor: pointer; color: var(--champ); }
+
+/* ---------- Hero ---------- */
+/* Fundo em CSS (brilhos dourados e textura) que aparece por trás das fotos ou quando não há fotos. */
+.hero {
+  position: relative; min-height: 100svh; display: flex; align-items: center; color: #fff; overflow: hidden;
+  background:
+    radial-gradient(60% 55% at 85% 12%, rgba(236,212,154,.28), transparent 62%),
+    radial-gradient(50% 55% at 8% 92%, rgba(201,162,77,.26), transparent 66%),
+    radial-gradient(45% 45% at 55% 55%, rgba(120,80,40,.32), transparent 70%),
+    repeating-linear-gradient(135deg, rgba(236,212,154,.035) 0 1px, transparent 1px 16px),
+    linear-gradient(135deg, #2a1f17 0%, #120d0a 55%, #1d1510 100%);
+  box-shadow: inset 0 -1px 0 rgba(201,162,77,.55);
+}
+/* Luzes douradas desfocadas que se movem devagar. */
+.hero::before {
+  content: ""; position: absolute; inset: -20%; pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(236,212,154,.20), transparent 40%),
+    radial-gradient(circle at 72% 66%, rgba(201,162,77,.18), transparent 42%);
+  filter: blur(30px);
+  animation: heroGlow 16s ease-in-out infinite alternate;
+}
+/* Véu escuro sobre as fotos, para o texto ficar legível. */
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.35)); }
+/* Sem fotos, o véu escuro não é necessário: deixa o dourado aparecer. */
+.hero:not(:has(.hero__slides img))::after { background: none; }
+
+/* Fotos do fundo, em transição suave (initHeroSlider no script.js). */
+.hero__slides { position: absolute; inset: 0; }
+.hero__slides img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.4s ease; }
+.hero__slides img.on { opacity: 1; animation: kenburns 9s ease-out both; }
+/* Logo em marca d'água no canto direito (fica atrás das fotos, se houver).
+   Ajustes: opacity (força), width (tamanho), bottom/right (posição). */
+.hero__slides::before {
+  content: ""; position: absolute; right: -10%; bottom: 6%;
+  width: min(85vw, 820px); aspect-ratio: 1;
+  background: url("images/logo.png") center / contain no-repeat;
+  opacity: .28; mix-blend-mode: screen; pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle at center, #000 38%, transparent 70%);
+          mask-image: radial-gradient(circle at center, #000 38%, transparent 70%);
+}
+
+.hero__txt { position: relative; z-index: 1; max-width: 700px; margin-left: max(1.25rem, calc((100% - 1180px) / 2)); padding-top: var(--header-h); }
+.hero__txt p { font-size: 1.25rem; max-width: 52ch; color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,.7); }
+.hero h1 { color: #fff; text-shadow: 0 2px 18px rgba(0,0,0,.6); font-weight: 500; }
+/* Entrada do texto do hero. */
+.hero__txt > * { animation: rise .9s both; }
+.hero__txt > *:nth-child(2) { animation-delay: .15s; }
+.hero__txt > *:nth-child(3) { animation-delay: .3s; }
+
+/* "Conhecer serviços": contorno champagne grosso, texto branco e fundo escuro translúcido. */
+.hero .btn--line { color: #fff; border: 2px solid var(--champ); background: rgba(0,0,0,.4); }
+.hero .btn--line:hover { background: var(--champ); color: #14100d; }
+
+/* Botões redondos com o ícone de cada rede social. */
+.hero__social { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.6rem; }
+.social-btn { width: 50px; height: 50px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: var(--champ); border: 1.5px solid var(--champ); background: rgba(0,0,0,.45); transition: background .25s, color .25s, transform .25s; }
+.social-btn svg { width: 24px; height: 24px; }
+.social-btn:hover { background: var(--gold); border-color: var(--gold); color: #120e0a; transform: translateY(-3px); }
+
+/* ---------- Sobre / Onde estamos ---------- */
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+/* Sem foto na seção Sobre: o texto ocupa a largura toda. */
+.about:not(:has(img, .about__map)) { grid-template-columns: 1fr; }
+/* Mapa incorporado ao lado do endereço (vai para baixo do texto no celular). */
+.about__map { border-radius: 12px; overflow: hidden; border: 1px solid var(--nude); box-shadow: 0 10px 30px rgba(20,16,13,.08); aspect-ratio: 4 / 3; min-height: 280px; }
+.about__map iframe { display: block; width: 100%; height: 100%; border: 0; }
+.about address { font-size: 1.1rem; font-weight: 500; color: var(--brown); }
+.about__sub { font-size: clamp(1.5rem, 3.2vw, 2rem); font-weight: 500; color: #14100d; margin-bottom: .8rem; }
+.about__sub::after { content: ""; display: block; width: 48px; height: 2px; background: var(--gold); margin-top: .7rem; }
+/* Título do horário vem logo depois do botão "Como chegar": dá um respiro entre eles. */
+.about .btn + .about__sub { margin-top: 2.5rem; }
+
+/* Horário de funcionamento. */
+.hours { list-style: none; padding: 0; margin: 0; }
+.hours:empty { display: none; }
+.hours li { display: flex; justify-content: space-between; gap: 1.5rem; max-width: 340px; padding: .55rem 0; border-bottom: 1px solid var(--nude); }
+.hours__day { font-weight: 600; color: #14100d; }
+.hours__time { color: var(--brown); }
+
+/* ---------- Cards (especialidades e serviços) ---------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 1.5rem; margin: 2.5rem 0; }
+.card { background: #fff; border: 1px solid #d7c3a3; margin: 0; padding: 0; transition: transform .3s, box-shadow .3s; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(107,86,70,.12); }
+
+/* Placeholder de imagem (usado pelo fallback do JS). */
+.ph { display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #f1e3c8, #dcc08a); color: #4a3a2e; font: italic 1rem var(--serif); text-align: center; padding: 1rem; }
+
+/* ---------- Especialidades: foto 4:5 com o título por cima ---------- */
+#specialties .card { position: relative; overflow: hidden; display: flex; flex-direction: column; border: 0; background: #14100d; box-shadow: 0 10px 28px rgba(26,22,19,.18); }
+#specialties .card:hover { box-shadow: 0 18px 38px rgba(26,22,19,.32); }
+#specialties .card img,
+#specialties .card .ph { width: 100%; aspect-ratio: 4 / 5 !important; object-fit: cover; flex: none; }
+/* Enquadramento mais perto do rosto/cabelo, com zoom lento no hover. */
+#specialties .card img { object-position: center 30%; transition: transform .6s ease; }
+#specialties .card:hover img { transform: scale(1.06); }
+/* Card ainda sem foto: fundo escuro com brilho dourado, sem texto. */
+#specialties .card .ph {
+  color: transparent; font-size: 0; padding: 0;
+  background:
+    radial-gradient(70% 60% at 75% 18%, rgba(201,162,77,.38), transparent 65%),
+    linear-gradient(160deg, #2a1f17, #0f0b08);
+}
+#specialties .card__body {
+  position: absolute; inset: auto 0 0 0; padding: 4rem 1.4rem 1.4rem;
+  background: linear-gradient(to top, rgba(10,8,7,.92) 0%, rgba(10,8,7,.6) 55%, transparent 100%);
+  pointer-events: none;
+}
+#specialties .card h3 { margin: 0; color: #fff; font-size: 1.5rem; text-shadow: 0 2px 12px rgba(0,0,0,.5); }
+#specialties .card h3::before {
+  content: ""; display: block; width: 36px; height: 2px; margin-bottom: .7rem;
+  background: var(--gold); transition: width .4s;
+}
+#specialties .card:hover h3::before { width: 68px; }
+
+/* ---------- Serviços: seção escura com busca, abas, grade e cartões ---------- */
+#servicos { background: #14100d; color: #f6eddc; }
+#servicos h2 { color: var(--champ); }
+#servicos .lead { color: #e8dcc6; }
+
+.svc-tools { display: grid; gap: 1rem; margin: 2rem 0 1rem; }
+.svc-search { display: flex; align-items: center; gap: .7rem; width: 100%; max-width: 560px; margin: 0 auto; padding: 0 1.1rem;
+  border: 1px solid #5a472f; background: #1b1510; border-radius: 999px; transition: border-color .3s, box-shadow .3s; }
+.svc-search:focus-within { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,162,77,.2); }
+.svc-search svg { width: 20px; height: 20px; flex: none; fill: none; stroke: var(--gold); stroke-width: 1.8; stroke-linecap: round; }
+.svc-search input { flex: 1; min-width: 0; height: 50px; border: 0; outline: 0; background: transparent; color: #f6eddc; font: inherit; font-size: 1rem; }
+.svc-search input::placeholder { color: #a8977a; }
+.svc-tabs, .svc-subtabs { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; }
+.svc-pill { padding: .6rem 1.2rem; border: 1px solid #5a472f; border-radius: 999px; background: transparent; color: #eadfca; cursor: pointer;
+  font: 600 .8rem var(--sans); letter-spacing: .1em; text-transform: uppercase; transition: background .25s, color .25s, border-color .25s; }
+.svc-pill:hover { border-color: var(--gold); }
+.svc-pill.on { background: var(--gold); border-color: var(--gold); color: #120e0a; }
+.svc-n { opacity: .65; font-weight: 500; margin-left: .15rem; }
+.svc-subtabs .svc-pill { padding: .45rem 1rem; font-size: .75rem; letter-spacing: .05em; text-transform: none; }
+.svc-pill:focus-visible, .svc__chip:focus-visible, .svc__btn:focus-visible { outline: 2px solid var(--champ); outline-offset: 2px; }
+.svc-info { text-align: center; color: #d8cbb4; min-height: 1.5em; margin: .6rem 0 0; }
+.svc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.2rem; margin: 1rem 0 2.5rem; }
+.svc-empty { grid-column: 1 / -1; text-align: center; color: #d8cbb4; padding: 2.5rem 0; }
+
+#servicos .svc { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: .9rem; min-height: 250px; padding: 1.4rem;
+  background: linear-gradient(160deg, #271e16 0%, #17120d 100%); border: 1px solid #4a3a2a; color: #f6eddc; border-radius: 4px;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s, box-shadow .35s; }
+#servicos .svc::before { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: linear-gradient(90deg, var(--gold), var(--champ));
+  transform: scaleX(0); transform-origin: left; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+#servicos .svc:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 16px 34px rgba(0,0,0,.45); }
+#servicos .svc:hover::before { transform: scaleX(1); }
+.svc__top { display: flex; justify-content: space-between; align-items: center; gap: .6rem; }
+.svc__cat { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+.svc__time { display: inline-flex; align-items: center; gap: .35rem; padding: .22rem .7rem; border: 1px solid #5a472f; border-radius: 999px; font-size: .8rem; color: #eadfca; white-space: nowrap; }
+.svc__time svg { width: 14px; height: 14px; fill: none; stroke: var(--gold); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+#servicos .svc h3.svc__name { margin: 0; font-size: 1.28rem; line-height: 1.28; color: var(--champ); }
+.svc__name::first-letter { text-transform: uppercase; }
+.svc__desc { margin: 0; font-size: .88rem; color: #d8cbb4; }
+.svc__opts { display: flex; flex-direction: column; gap: .5rem; }
+.svc__optlabel { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: #bfae8f; }
+.svc__chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+.svc__chip { min-width: 46px; padding: .4rem .85rem; border: 1px solid #5a472f; border-radius: 999px; background: transparent; color: #eadfca; cursor: pointer;
+  font: 600 .82rem var(--sans); transition: background .25s, color .25s, border-color .25s; }
+.svc__chip:hover { border-color: var(--gold); }
+.svc__chip.on { background: var(--gold); border-color: var(--gold); color: #120e0a; }
+.svc__price { margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between; gap: .6rem; padding-top: .8rem; border-top: 1px solid #3c2f22; }
+.svc__pv { display: flex; flex-direction: column; }
+.svc__price small { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: #bfae8f; min-height: 1em; }
+.svc__price strong { font-family: var(--serif); font-weight: 500; font-size: 1.75rem; line-height: 1.15; color: #f1d9a0; white-space: nowrap; }
+.svc__size { align-self: flex-start; margin: 0; padding: .32rem .8rem; border: 1px solid var(--gold); border-radius: 999px; background: rgba(201,162,77,.14);
+  color: var(--champ); font-size: .76rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+.svc__btn { display: block; text-align: center; padding: .7rem 1rem; border: 1px solid var(--gold); color: var(--champ); font-size: .75rem; letter-spacing: .16em;
+  text-transform: uppercase; text-decoration: none; transition: background .3s, color .3s; }
+.svc__btn:hover { background: var(--gold); color: #120e0a; }
+.svc-grid .svc { animation: cardIn .55s cubic-bezier(.2,.7,.2,1) backwards; animation-delay: calc(var(--i, 0) * 45ms); }
+
+/* ---------- Galeria em mosaico e lightbox ---------- */
+/* Padrão que se repete a cada 6 fotos: 1 alta, 2 grande, 3 e 4 pequenas, 5 e 6 grandes. */
+.gallery {
+  display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: clamp(130px, 22vw, 260px);
+  grid-auto-flow: dense; gap: 1rem; margin: 2.5rem 0;
+}
+.gallery button {
+  position: relative; padding: 0; border: 0; background: var(--nude); cursor: zoom-in; overflow: hidden;
+  box-shadow: 0 10px 26px rgba(20,16,13,.12); transition: box-shadow .4s ease;
+}
+.gallery button:hover, .gallery button:focus-visible { box-shadow: 0 20px 40px rgba(20,16,13,.26); }
+.gallery > :nth-child(6n+1) { grid-row: span 2; }
+.gallery > :nth-child(6n+2) { grid-column: span 2; grid-row: span 2; }
+.gallery > :nth-child(6n+5),
+.gallery > :nth-child(6n+6) { grid-column: span 2; grid-row: span 2; }
+/* Fotos verticais: o recorte prioriza o rosto (um pouco abaixo do topo). */
+.gallery img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+.gallery button:hover img { transform: scale(1.06); }
+/* Véu suave no hover. */
+.gallery > button::after {
+  content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity .4s; pointer-events: none;
+  background: linear-gradient(to top, rgba(10,8,7,.45), transparent 55%);
+}
+.gallery > button:hover::after, .gallery > button:focus-visible::after { opacity: 1; }
+/* Moldura dourada fina que se abre no hover, como nos cards de especialidades. */
+.gallery > button::before {
+  content: ""; position: absolute; inset: 12px; z-index: 1; pointer-events: none;
+  border: 1px solid transparent; transition: border-color .4s ease, inset .4s ease;
+}
+.gallery > button:hover::before, .gallery > button:focus-visible::before { inset: 18px; border-color: rgba(236,212,154,.85); }
+
+.lightbox {
+  position: fixed; inset: 0; background: rgba(14,11,9,.96); z-index: 300;
+  display: flex; align-items: center; justify-content: center; animation: lbIn .3s ease;
+}
+@keyframes lbIn { from { opacity: 0; } }
+/* Largura descontando as setas laterais, para a foto não ficar por baixo delas. */
+.lightbox img { max-width: calc(100vw - 10rem); max-height: 84vh; object-fit: contain; box-shadow: 0 24px 70px rgba(0,0,0,.55); }
+.lightbox button { position: absolute; background: none; border: 0; color: #fff; font-size: 2rem; cursor: pointer; padding: 1rem; }
+/* Botões circulares dourados, com a mesma paleta do site. */
+.lightbox .lb-close, .lightbox .lb-prev, .lightbox .lb-next {
+  display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; padding: 0;
+  border-radius: 50%; border: 1px solid rgba(236,212,154,.55); background: rgba(20,16,13,.55);
+  color: var(--champ); font-size: 1.4rem; line-height: 1;
+  transition: background .25s, color .25s, border-color .25s;
+}
+.lightbox .lb-close:hover, .lightbox .lb-prev:hover, .lightbox .lb-next:hover { background: var(--gold); color: #120e0a; border-color: var(--gold); }
+.lightbox .lb-close { top: 1.25rem; right: 1.25rem; }
+.lightbox .lb-prev { left: 1.25rem; top: 50%; transform: translateY(-50%); }
+.lightbox .lb-next { right: 1.25rem; top: 50%; transform: translateY(-50%); }
+.lightbox .lb-count {
+  position: absolute; bottom: 1.4rem; left: 50%; transform: translateX(-50%); margin: 0;
+  font: italic 1.1rem var(--serif); color: var(--champ); letter-spacing: .08em;
+}
+
+/* ---------- CTA e rodapé ---------- */
+.cta { background: #0a0807; color: #fff; padding: 6rem 0; }
+.cta h2 { color: var(--nude); }
+.cta p { font-size: 1.2rem; }
+.footer { background: #0a0807; color: #e8dcc6; padding: 3.5rem 0; }
+.footer__in { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
+.footer__in > * { min-width: 0; }
+.footer nav { display: flex; flex-direction: column; gap: .4rem; }
+.footer a { text-decoration: none; } .footer a:hover { color: var(--gold); }
+.copy { font-size: .85rem; margin: 2rem 0 0; opacity: .7; }
+/* Crédito do desenvolvedor: logo abaixo do copyright, sem o espaçamento grande. */
+.copy--credit { margin-top: .4rem; line-height: 2; }
+/* Pequeno botão de WhatsApp do desenvolvedor, no rodapé. */
+.dev-wa { display: inline-flex; align-items: center; gap: .4rem; margin-left: .4rem; padding: .25rem .7rem; border: 1px solid var(--gold); border-radius: 999px; color: var(--champ); font-size: .85rem; font-weight: 500; vertical-align: middle; transition: background .25s, color .25s; }
+.dev-wa:hover { background: var(--gold); color: #120e0a; }
+
+/* ---------- Botões flutuantes ---------- */
+/* Voltar ao topo (canto esquerdo). */
+.totop { position: fixed; left: 1.25rem; bottom: 1.25rem; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--gold); background: var(--bg); color: var(--gold-dark); cursor: pointer; z-index: 90; }
+/* WhatsApp (canto direito). */
+.wa-float { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 90; width: 58px; height: 58px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; background: #25d366; color: #fff;
+  box-shadow: 0 8px 22px rgba(0,0,0,.35); transition: transform .25s, box-shadow .25s; }
+.wa-float svg { width: 32px; height: 32px; }
+.wa-float:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 12px 28px rgba(0,0,0,.45); }
+.wa-float::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid #25d366; animation: waPulse 2.6s ease-out infinite; }
+
+/* ---------- Revelação ao rolar: o JS adiciona .in quando o elemento aparece ---------- */
+/* Fica depois de .card de propósito: com a mesma especificidade, estas regras prevalecem. */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
+.reveal.in { opacity: 1; transform: none; }
+.reveal.done { transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s, border-color .3s, opacity .3s; transition-delay: 0s; }
+
+/* ---------- Animações ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } }
+@keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.08); } }
+@keyframes heroGlow {
+  from { transform: translate3d(-4%, -3%, 0) scale(1); }
+  to   { transform: translate3d(4%, 3%, 0) scale(1.12); }
+}
+@keyframes cardIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes waPulse { from { transform: scale(1); opacity: .7; } to { transform: scale(1.55); opacity: 0; } }
+
+
+/* ==========================================================
+   RESPONSIVIDADE
+   ========================================================== */
+/* Telas grandes: tudo um pouco maior. */
+@media (min-width: 1600px) { html { font-size: 112.5%; } }
+
+/* Tablet e celular: menu vira painel que desce abaixo do header. */
+@media (max-width: 960px) {
+  .about { grid-template-columns: 1fr; gap: 2rem; }
+  .header__in { gap: .5rem; }
+  .header__cta { display: none; }
+  .logo { min-width: 0; }
+  .burger { display: flex; width: 48px; height: 48px; align-items: center; justify-content: center; padding: 0; flex-shrink: 0; }
+  .nav {
+    position: fixed; top: var(--header-h); left: 0; right: 0; flex-direction: column; gap: 1.1rem;
+    background: #0a0807; padding: 1.5rem; border-bottom: 1px solid var(--nude);
+    max-height: calc(100svh - var(--header-h)); overflow-y: auto;
+    transform: translateY(calc(-100% - var(--header-h)));
+    visibility: hidden; transition: transform .35s, visibility 0s .35s;
+  }
+  .nav.open { transform: none; visibility: visible; transition: transform .35s, visibility 0s; }
+  .nav a { font-size: 1.1rem; padding: .7rem 0; border-bottom: 1px solid #2e251d; }
+  .nav a:last-child { border-bottom: 0; }
+  .hero__txt { margin-inline: auto; width: min(700px, 100% - 2.5rem); }
+  .hero::after { background: linear-gradient(180deg, rgba(0,0,0,.7), rgba(0,0,0,.5)); }
+}
+
+/* Galeria no celular: 2 colunas; as fotos 1 e 2 ficam altas lado a lado. */
+@media (max-width: 700px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 38vw; gap: .5rem; }
+  .gallery > :nth-child(6n+2) { grid-column: span 1; grid-row: span 2; }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+  :root { --header-h: 76px; }
+  body { font-size: 1rem; }
+  .container { width: calc(100% - 2rem); }
+  .section { padding: 3.5rem 0; }
+  .logo { gap: .55rem; }
+  .logo img { height: 54px; width: 54px; }
+  .hero__txt { width: calc(100% - 2rem); padding: calc(var(--header-h) + 1.5rem) 0 2rem; }
+  .hero h1 { font-size: clamp(2rem, 9vw, 2.6rem); }
+  .hero__txt p { font-size: 1.1rem; }
+  .hero__btns { display: flex; flex-direction: column; gap: .6rem; }
+  .hero__btns .btn { display: block; margin: 0; width: 100%; text-align: center; padding: 1rem 1.2rem; }
+  .hero__social { justify-content: flex-start; }
+  .about { gap: 1.5rem; }
+  .about .btn { display: block; text-align: center; margin: 0; }
+  .cta { padding: 4rem 0; }
+  .cta .btn { display: block; width: 100%; margin: .5rem 0 0; text-align: center; }
+  .footer { padding: 2.5rem 0 3.5rem; }
+  .footer__in { flex-direction: column; align-items: center; text-align: center; }
+  .footer nav { align-items: center; }
+  .copy { padding-inline: 1rem; }
+  /* No celular, os botões ficam embaixo: a foto precisa parar antes deles. */
+  .lightbox img { max-width: 94vw; max-height: 74vh; }
+  .lightbox .lb-prev, .lightbox .lb-next { top: auto; bottom: 1rem; transform: none; width: 46px; height: 46px; }
+  .lightbox .lb-prev { left: 1rem; } .lightbox .lb-next { right: 1rem; }
+  .lightbox .lb-close { top: 1rem; right: 1rem; width: 46px; height: 46px; }
+  .lightbox .lb-count { top: 1.2rem; bottom: auto; left: 1rem; transform: none; font-size: 1rem; }
+}
+
+@media (max-width: 560px) { .svc-grid { grid-template-columns: 1fr; } .svc-pill { padding: .55rem 1rem; } .svc__chip { min-height: 40px; min-width: 52px; } }
+
+@media (max-width: 420px) { .logo-name { font-size: 1rem; } .logo-name small { font-size: .58rem; } }
+
+/* Telas muito pequenas */
+@media (max-width: 360px) {
+  .logo-name { font-size: .92rem; }
+  .logo-name small { font-size: .52rem; letter-spacing: .12em; }
+  .logo img { height: 46px; width: 46px; }
+  .btn { padding: .85rem 1rem; letter-spacing: .1em; }
+}
+
+/* Celular deitado: hero não pode ser mais baixo que o conteúdo. */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero { min-height: auto; }
+  .hero__txt { padding-top: calc(var(--header-h) + 1rem); padding-bottom: 1.5rem; }
+}
+
+/* Respeita quem prefere menos movimento. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1; transform: none; }
+  h2.center::after { transform: none; }
+}
